@@ -6,14 +6,14 @@ pipeline {
     stages {
         stage ('Build Docker Image') {
             steps {
-                   sh "docker build . -t timbobb/nodeapp:${DOCKER_TAG}"
+                   sh "docker build . -t chi4boris/node-app${DOCKER_TAG}"
             }
         }
         stage('DockerHub Push'){
             steps{
                 withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u timbobb -p ${dockerHubPwd}"
-                    sh "docker push timbobb/nodeapp:${DOCKER_TAG}"
+                    sh "docker login -u chi4boris -p ${dockerHubPwd}"
+                    sh "docker push chi4boris/nodeapp:${DOCKER_TAG}"
                 }
             }
         }
