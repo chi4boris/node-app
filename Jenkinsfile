@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage ('Build Docker Image') {
             steps {
-                   sh "docker build . -t chi4boris/node-app${DOCKER_TAG}"
+                   sh "docker build . -t chi4boris/nodeapp${DOCKER_TAG}"
             }
         }
         stage('DockerHub Push'){
